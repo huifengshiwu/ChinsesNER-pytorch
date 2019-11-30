@@ -32,7 +32,7 @@ class ChineseNER(object):
                 "tag_map": self.train_manager.tag_map,
             }
             self.save_params(data)
-            dev_manager = DataManager(batch_size=30, data_type="dev")
+            dev_manager = DataManager(batch_size=30, data_type="dev", tags=self.tags)
             self.dev_batch = dev_manager.iteration()
 
             self.model = BiLSTMCRF(
